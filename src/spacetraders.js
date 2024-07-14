@@ -43,6 +43,17 @@ export async function getWaypoint(systemSymbol, waypointSymbol) {
   );
   return response.data;
 }
+
+export async function viewContracts() {
+  const response = await api.get('my/contracts');
+  return response.data;
+}
+//Accept your contract
+//clykvsw4qua6is60cik1rr7pc
+export async function acceptContract(contractId) {
+  const response = await api.post(`my/contracts/${contractId}/accept`);
+  return response.data;
+}
 export async function register(callSign) {
   const response = await axios.post(
     'https://api.spacetraders.io/v2/register',
